@@ -14,28 +14,28 @@ public class PathServiceImplTest {
     @Before
     public void beforeClass() {
         pathService = new PathServiceImpl();
-        Storage.files.put(new File("D:\\"), 150);
-        Storage.files.put(new File("src/main/java/core/service"), 150);
-        Storage.files.put(new File("src/main/java/core/model"), 220);
-        Storage.files.put(new File("src/main/java/core/db"), 230);
-        Storage.files.put(new File("src/main/java/core/dao"), 420);
+        Storage.files.put(new File("first"), 150);
+        Storage.files.put(new File("second"), 150);
+        Storage.files.put(new File("third"), 220);
+        Storage.files.put(new File("fourth"), 230);
+        Storage.files.put(new File("fifth"), 420);
     }
 
     @Test
     public void testForWork() {
-        String firstExpected = "D:\\;150" + System.lineSeparator()
-                + "src\\main\\java\\core\\service;150" + System.lineSeparator()
-                + "src\\main\\java\\core\\model;220" + System.lineSeparator()
-                + "src\\main\\java\\core\\db;230" + System.lineSeparator()
-                + "src\\main\\java\\core\\dao;420";
+        String firstExpected = "first;150" + System.lineSeparator()
+                + "second;150" + System.lineSeparator()
+                + "third;220" + System.lineSeparator()
+                + "fourth;230" + System.lineSeparator()
+                + "fifth;420";
         String firstActual = pathService.generateReport();
         assertEquals(firstExpected, firstActual);
-        Storage.files.put(new File("D:\\"), 0);
-        String secondExpected = "D:\\;0" + System.lineSeparator()
-                + "src\\main\\java\\core\\service;150" + System.lineSeparator()
-                + "src\\main\\java\\core\\model;220" + System.lineSeparator()
-                + "src\\main\\java\\core\\db;230" + System.lineSeparator()
-                + "src\\main\\java\\core\\dao;420";
+        Storage.files.put(new File("first"), 0);
+        String secondExpected = "first;0" + System.lineSeparator()
+                + "second;150" + System.lineSeparator()
+                + "third;220" + System.lineSeparator()
+                + "fourth;230" + System.lineSeparator()
+                + "fifth;420";
         String secondActual = pathService.generateReport();
         assertEquals(secondExpected, secondActual);
     }

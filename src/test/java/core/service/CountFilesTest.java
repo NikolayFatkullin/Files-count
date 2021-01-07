@@ -37,12 +37,12 @@ public class CountFilesTest {
 
     @Test
     public void testForCorrectData() {
-        countFiles = new CountFiles(new File("D:\\flutter"), new AtomicInteger(0));
+        countFiles = new CountFiles(new File("src/test"), new AtomicInteger(0));
         countFiles.run();
         Map<File, Integer> expected = new LinkedHashMap<>();
-        expected.put(new File("D:\\flutter"), 15428);
+        expected.put(new File("src\\test"), 11);
         Map<File, Integer> actual = Storage.files;
-        assertEquals("0 D:\\flutter - 15428", output.toString().trim());
+        assertEquals("0 src\\test - 11", output.toString().trim());
         assertEquals(expected, actual);
     }
 
