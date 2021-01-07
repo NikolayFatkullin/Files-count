@@ -40,9 +40,9 @@ public class CountFilesTest {
         countFiles = new CountFiles(new File("src/test"), new AtomicInteger(0));
         countFiles.run();
         Map<File, Integer> expected = new LinkedHashMap<>();
-        expected.put(new File("src\\test"), 11);
+        expected.put(new File("src" + File.separator + "test"), 11);
         Map<File, Integer> actual = Storage.files;
-        assertEquals("0 src\\test - 11", output.toString().trim());
+        assertEquals("0 src" + File.separator + "test - 11", output.toString().trim());
         assertEquals(expected, actual);
     }
 
