@@ -26,6 +26,11 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.1stleg</groupId>
+            <artifactId>jnativehook</artifactId>
+            <version>1.1.5</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -91,6 +96,7 @@
                 <configuration>
                     <excludes>
                         <exclude>**/Main*</exclude>
+                        <exclude>**/KeyListener*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
